@@ -66,7 +66,7 @@ const processMessage = ({ data }) => {
         : createMessageOtherElement(content, userName, userColor)
 
     chatMessages.appendChild(message)
-    
+
     scrollScreen()
 }
 
@@ -79,7 +79,7 @@ const handleLogin = (event) => {
     login.style.display = "none"
     chat.style.display = "flex"
 
-    websocket = new WebSocket("ws://localhost:8080")
+    websocket = new WebSocket("wss://projeto-chat.onrender.com")
 
     websocket.onopen = () => websocket.send(`Usuário: ${user.name} entrou no chat`)
     websocket.onmessage = processMessage
